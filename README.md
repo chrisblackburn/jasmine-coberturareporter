@@ -5,13 +5,20 @@ Cobertura coverage compatible output for Jasmine tests.
 
 Usage
 -----
- * Download jscoverage (protip: Chef Cookbook)
- * Download PhantomJS (protip: Chef Cookbook)
+ * Download jscoverage (protip: [Chef Cookbook](https://github.com/chrisblackburn/chef-jscoverage/))
+ * Download PhantomJS (protip: [Chef Cookbook](https://github.com/gosquared/phantomjs-cookbook))
  * Run jsCoverage to instrument the javascript files you want to run coverage for
  * Include the instrumented files in your test runner page
  * Add the jasmine-coberturareporter as a reporter in your test runner page
  * Tell jasmine-coberturareporter where you want the XML report and where your source files live
  * Run through something like PhantomJS through the included `phantom-testrunner.js` file
+
+
+Adding the reporter
+-------------------
+Add this line to your test runner page:
+
+	jasmine.getEnv().addReporter(new jasmine.CoberturaReporter(<output_path>, <uninstrumented_javascript_path>));
 
 
 Example Test Runner
